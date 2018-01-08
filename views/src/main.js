@@ -6,6 +6,7 @@ function listOwnItems (items) {
 		const html = 
 		"<li class='item'>" +
 			"<p class='name'>"+ item.name +"</p>" +
+			"<p>id: <span class='id'>"+ item.id +"</span></p>" +
 			"<p class='image'><img src='https://steamcommunity-a.opskins.media/economy/image/"+ item.img +"'/></p>" +
 			"<p class='price-label'>price (in cents): <input value='"+ item.price +"'/>" +
 				"<button class='save-btn'>save</button>" +
