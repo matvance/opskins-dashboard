@@ -61,4 +61,20 @@ io.on("connection", (socket) => {
 			})
 		}
 	})
+
+	socket.on("buy item", (saleId, price) => {
+		console.log(saleId, price);
+		opskins.buyItems([saleId], price, (err, items) => {
+			if (err) console.log(err);
+			console.log(items, " purchased.")
+		})
+	})
+	socket.on("quick buy item", (saleId, price, sellerApi) => {
+		savedUsers[sellerApi].editPrice(saleId, price, (err, relisted) => {
+			if (err) console.log(err);
+			opskins.buyItems([saleId], price, (err, items) => {
+				if (err) console.log(err);
+			})
+		})
+	})
 })
