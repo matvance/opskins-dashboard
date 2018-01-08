@@ -1,7 +1,7 @@
 const socket = io();
 
 function listOwnItems (items) {
-	$("ul").innerHTML = "";
+	$("ul").html("");
 	items.forEach((item) => {
 		const html = 
 		"<li class='item'>" +
@@ -16,15 +16,18 @@ function listOwnItems (items) {
 	})
 }
 function listFriendItems (items) {
-	$("ul").innerHTML = "";
+	$("ul").html("");
 	items.forEach((item) => {
 		const html = 
 		"<li class='item'>" +
 			"<p><input type='checkbox' name='items-check' class='checkbox'/></p>" +
 			"<p class='name'>"+ item.name +"</p>" +
+			"<p>id: <span class='id'>"+ item.id +"</span></p>" +
 			"<p class='image'><img src='https://steamcommunity-a.opskins.media/economy/image/"+ item.img +"'/></p>" +
-			"<p class='price-label'>price:"+ item.price +" cents</p>" +
-			"<p class='buttons'><button>buy it</button></p>" +
+			"<p class='price-label'>price:<span class='price'>"+ item.price +"</span> cents</p>" +
+			"<p class='buttons'><button class='buy-item-btn'>buy it</button></p>" +
+			"<p>or quick buy this item:</p>" +
+			"<p>price (in cents): <input type='text' value='"+ item.price +"'/> <button class='quick-buy-btn'>quick buy</button></p>" +
 		"</li>";
 		$("ul").append(html);
 	})
