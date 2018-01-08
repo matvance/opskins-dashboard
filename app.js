@@ -2,9 +2,15 @@ const app = require("express")();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 
+const fs = require("fs");
+let SETTINGS = require("./settings.json");
+function writeSettings (callback) {
+	fs.writeFileSync("./settings.json", JSON.stringify(SETTINGS, null, "\t"), "utf-8")
+	if (callback) callback();
+}
+
 const OPSkinsAPI = require("@opskins/api");
-//                          \/\/\/\/
-const opskins = new OPSkinsAPI("");
+const opskins = new OPSkinsAPI(SETTINGS.apiKey);
 const SaleStatus = OPSkinsAPI.SaleStatus;
 
 let savedUsers = {};
