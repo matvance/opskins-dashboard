@@ -1,13 +1,9 @@
 include includes/header.pug
 
-h3 Your items
-ul.items
+h2 Your items on sale
+ul.items-list
 
-script
-	include src/lib/jquery-3.2.1.min.js
-script(src="/socket.io/socket.io.js")
-script
-	include src/main.js
+include includes/scripts.pug
 script
 	include src/home.js
 	

@@ -1,17 +1,13 @@
 include includes/header.pug
 
-h3 Buy skins from your buddies :)
-p Input here his API key: 
-	input.api-key
-	button.api-save-btn submit
+h2 Show your friend's sales
+	
+input.api-key(placeholder="API Key")
+button.api-save-btn submit
 
-ul
+ul.items-list
 
-script
-	include src/lib/jquery-3.2.1.min.js
-script(src="/socket.io/socket.io.js")
-script
-	include src/main.js
+include includes/scripts.pug
 script
 	include src/buy-items.js
 	

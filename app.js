@@ -61,6 +61,16 @@ io.on("connection", (socket) => {
 			})
 		}
 	})
+	socket.on('get account-info', (callback) => {
+		opskins.getSteamID((err, steamID) => {
+			if (err) console.log(err);
+			opskins.getBalance((err, balance) => {
+				if (err) console.log(err);
+				callback(steamID, balance);
+			});
+		});
+
+	})
 
 	socket.on("buy item", (saleId, price) => {
 		console.log(saleId, price);

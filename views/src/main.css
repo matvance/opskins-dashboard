@@ -1,5 +1,22 @@
+header .balance {
+	color: #00f;
+	font-size: 15pt;
+}
 nav a {
-	margin-right: 50px;
+	margin-right: 10px;
+	color: blue;
+	text-decoration: none;
+	font-size: 15pt;
+}
+nav a:hover {
+	text-decoration: underline;
+	color: #8800ff;
+}
+hr {
+	border: none;
+	background: black;
+	height: 1px;
+	width: 520px;
 }
 .item .checkbox {
 	-ms-transform: scale(2); /* IE */
@@ -8,4 +25,7 @@ nav a {
 	-o-transform: scale(2); /* Opera */
 	transform: scale(2);
 	margin-bottom: 30px;
+}
+footer {
+	font-size: 120%;
 }

@@ -1,7 +1,7 @@
 const socket = io();
 
 function listOwnItems (items) {
-	$("ul").html("");
+	$("ul.items-list").html("");
 	items.forEach((item) => {
 		const html = 
 		"<li class='item'>" +
@@ -12,11 +12,11 @@ function listOwnItems (items) {
 				"<button class='save-btn'>save</button>" +
 			"</p>" +
 		"</li>";
-		$("ul").append(html);
+		$("ul.items-list").append(html);
 	})
 }
 function listFriendItems (items) {
-	$("ul").html("");
+	$("ul.items-list").html("");
 	items.forEach((item) => {
 		const html = 
 		"<li class='item'>" +
@@ -29,7 +29,7 @@ function listFriendItems (items) {
 			"<p>or quick buy this item:</p>" +
 			"<p>price (in cents): <input type='text' value='"+ item.price +"'/> <button class='quick-buy-btn'>quick buy</button></p>" +
 		"</li>";
-		$("ul").append(html);
+		$("ul.items-list").append(html);
 	})
 }
 
@@ -44,4 +44,13 @@ socket.on("res items", (items) => {
 })
 socket.on("res friend items", (items) => {
 	listFriendItems(items)
+})
+
+
+$(() => {
+	socket.emit("get account-info", (steamID, balance) => {
+		$("header .steam-id").text(steamID);
+		const balanceString = "$" + (balance / 100).toString();
+		$("header .balance").text(balanceString);
+	})
 })
