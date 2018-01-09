@@ -20,7 +20,7 @@ server.listen(80);
 app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
-	res.render("home");
+	res.render("sales");
 })
 app.get("/buy-items", (req, res) => {
 	res.render("buy-items");

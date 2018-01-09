@@ -1,0 +1,56 @@
+include includes/header.pug
+
+.main-grid
+	header
+		.ui.menu
+			.header.item OPSkins Dashboard a3
+			a.active.item Sales
+			a.item Inventory
+
+			.right.menu
+				.ui.borderless.item.account-balance $5.15
+				a.ui.item Settings
+	.content
+		.ui.padded.segment
+			h1 Your sales
+
+			.list-buttons
+				.ui.button Select all
+				.ui.disabled.button Return
+
+			.ui.relaxed.divided.list
+				.item.sale
+					.right.floated.content
+						.ui.fitted.checkbox
+							input(type="checkbox")
+							label 
+					.ui.image
+						img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_bayonet_am_doppler_phase1_light_large.2de778920740e6c402ab6ac36ff5e9410196fbe8.png")
+					.content
+						h3.name Bayonet - Doppler | Field-tested
+							span.id #353028847
+						span.price $121.20
+						.ui.button.disabled.price-save-btn Save
+				.item.sale
+					.right.floated.content
+						.ui.fitted.checkbox
+							input(type="checkbox")
+							label 
+					.ui.image
+						img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_bayonet_am_doppler_phase1_light_large.2de778920740e6c402ab6ac36ff5e9410196fbe8.png")
+					.content
+						h3.name Bayonet - Doppler | Field-tested
+							span.id #353028847
+						span.price $121.20
+						.ui.button.disabled.price-save-btn Save
+	.sidebars-column
+		.sidebar
+			.ui.padded.segment
+				h2 Friends list
+				p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum dui tincidunt dignissim lacinia. Vivamus ullamcorper facilisis lacus nec dignissim.
+		.sidebar
+			.ui.padded.segment.disabled
+				h2 Account details
+				p Lorem ipsum dolor sit amet.
+
+include includes/scripts.pug
