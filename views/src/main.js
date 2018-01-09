@@ -54,3 +54,11 @@ $(() => {
 		$("header .balance").text(balanceString);
 	})
 })
+
+// ================== Semantic-UI configuration ==================
+
+$('.sidebars-columns')
+  .sticky({
+    context: '#content-box'
+  })
+;
