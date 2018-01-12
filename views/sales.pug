@@ -4,12 +4,12 @@ include includes/header.pug
 	header
 		.ui.secondary.menu
 			.header.item OPS-Dash a3
-			a.active.item Sales
-			a.item Inventory
+			a.active.item(href="http://localhost") Sales
+			a.item(href="http://localhost/inventory") Inventory
 
 			.right.menu
 				.ui.borderless.item.account-balance $5.15
-				a.ui.item Settings
+				a.ui.item(href="http://localhost/settings") Settings
 	.content
 		.ui.padded.segment
 			h1 Sales
@@ -18,7 +18,7 @@ include includes/header.pug
 				.ui.button Select all
 				.ui.disabled.button Return
 				.ui.selection.dropdown
-					input(name="gender" type="hidden" autocomplete="off")
+					input(name="salesOwnership" type="hidden" autocomplete="off")
 					i.dropdown.icon
 					.default.text 
 						strong Your 
@@ -64,53 +64,5 @@ include includes/header.pug
 						span.price $121.20
 						.ui.button.disabled.price-save-btn Save
 						.ui.button Return
-	.sidebars-column
-		.sidebar#friends-list
-			.ui.padded.segment
-				h2 Friends list
-				//- .ui.middle.aligned.divided.selection.list
-					.item
-						.right.floated.content
-							i.setting.icon
-						.middle.aligned.content
-							|Mike
-							small.key 3181dd8796ed40c81588dd9d4a20a7
-					.item
-						.right.floated.content
-							i.setting.icon
-						.middle.aligned.content
-							|Paul
-							small.key 3181dd8796ed40c81588dd9d4a20a7
-					.item
-						.right.floated.content
-							i.setting.icon
-						.middle.aligned.content
-							|Luke
-							small.key 3181dd8796ed40c81588dd9d4a20a7
-				table.ui.very.basic.table
-					tbody
-						tr
-							td.nick Mike
-							td.key 3181dd879..
-							td.right.aligned 
-								.ui.tiny.basic.button edit
-						tr
-							td.nick Paul
-							td.key 3181dd879..
-							td.right.aligned 
-								.ui.tiny.basic.button edit
-						tr
-							td.nick Luke
-							td.key 3181dd879..
-							td.right.aligned 
-								.ui.tiny.basic.button edit
-				.ui.secondary.button Add new
-		.sidebar
-			.ui.padded.segment
-				h2 Author
-				.ui.list
-					.item komarnicki115@gmail.com
-					.item github.com/mkom99
-					.item m.me/komarnicki.m
-
+	include includes/sidebars.pug
 include includes/scripts.pug

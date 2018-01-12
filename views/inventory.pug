@@ -1,0 +1,37 @@
+include includes/header.pug
+
+.main-grid
+	header
+		.ui.secondary.menu
+			.header.item OPS-Dash a3
+			a.item(href="http://localhost") Sales
+			a.active.item(href="http://localhost/inventory") Inventory
+
+			.right.menu
+				.ui.borderless.item.account-balance $5.15
+				a.ui.item(href="http://localhost/settings") Settings
+	.content
+		.ui.padded.segment
+			h1 Inventory
+
+			.ui.selection.dropdown
+				input(name="inventoryOwnership" type="hidden" autocomplete="off")
+				i.dropdown.icon
+				.default.text 
+					strong Your 
+					|inventory
+				.menu
+					div.item(data-value="1") 
+						strong Your 
+						|inventory
+					div.item(data-value="2") 
+						strong Mike
+						|'s inventory
+					div.item(data-value="3") 
+						strong Paul
+						|'s inventory
+					div.item(data-value="4") 
+						strong Luke
+						|'s inventory
+	include includes/sidebars.pug
+include includes/scripts.pug
