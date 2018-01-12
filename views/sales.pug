@@ -2,8 +2,8 @@ include includes/header.pug
 
 .main-grid
 	header
-		.ui.menu
-			.header.item OPSkins Dashboard a3
+		.ui.secondary.menu
+			.header.item OPS-Dash a3
 			a.active.item Sales
 			a.item Inventory
 
@@ -12,11 +12,30 @@ include includes/header.pug
 				a.ui.item Settings
 	.content
 		.ui.padded.segment
-			h1 Your sales
+			h1 Sales
 
 			.list-buttons
 				.ui.button Select all
 				.ui.disabled.button Return
+				.ui.selection.dropdown
+					input(name="gender" type="hidden" autocomplete="off")
+					i.dropdown.icon
+					.default.text 
+						strong Your 
+						|sales
+					.menu
+						div.item(data-value="1") 
+							strong Your 
+							|sales
+						div.item(data-value="2") 
+							strong Mike
+							|'s sales
+						div.item(data-value="3") 
+							strong Paul
+							|'s sales
+						div.item(data-value="4") 
+							strong Luke
+							|'s sales
 
 			.ui.relaxed.divided.list
 				.item.sale
@@ -31,6 +50,7 @@ include includes/header.pug
 							span.id #353028847
 						span.price $121.20
 						.ui.button.disabled.price-save-btn Save
+						.ui.button Return
 				.item.sale
 					.right.floated.content
 						.ui.fitted.checkbox
@@ -43,14 +63,54 @@ include includes/header.pug
 							span.id #353028847
 						span.price $121.20
 						.ui.button.disabled.price-save-btn Save
+						.ui.button Return
 	.sidebars-column
-		.sidebar
+		.sidebar#friends-list
 			.ui.padded.segment
 				h2 Friends list
-				p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut condimentum dui tincidunt dignissim lacinia. Vivamus ullamcorper facilisis lacus nec dignissim.
+				//- .ui.middle.aligned.divided.selection.list
+					.item
+						.right.floated.content
+							i.setting.icon
+						.middle.aligned.content
+							|Mike
+							small.key 3181dd8796ed40c81588dd9d4a20a7
+					.item
+						.right.floated.content
+							i.setting.icon
+						.middle.aligned.content
+							|Paul
+							small.key 3181dd8796ed40c81588dd9d4a20a7
+					.item
+						.right.floated.content
+							i.setting.icon
+						.middle.aligned.content
+							|Luke
+							small.key 3181dd8796ed40c81588dd9d4a20a7
+				table.ui.very.basic.table
+					tbody
+						tr
+							td.nick Mike
+							td.key 3181dd879..
+							td.right.aligned 
+								.ui.tiny.basic.button edit
+						tr
+							td.nick Paul
+							td.key 3181dd879..
+							td.right.aligned 
+								.ui.tiny.basic.button edit
+						tr
+							td.nick Luke
+							td.key 3181dd879..
+							td.right.aligned 
+								.ui.tiny.basic.button edit
+				.ui.secondary.button Add new
 		.sidebar
-			.ui.padded.segment.disabled
-				h2 Account details
-				p Lorem ipsum dolor sit amet.
+			.ui.padded.segment
+				h2 Author
+				.ui.list
+					.item komarnicki115@gmail.com
+					.item github.com/mkom99
+					.item m.me/komarnicki.m
 
 include includes/scripts.pug

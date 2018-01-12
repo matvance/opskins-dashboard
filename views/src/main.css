@@ -58,3 +58,7 @@ header .account-balance {
 	background: #f5f5f5;
 	text-decoration: underline;
 }
+
+.sidebar#friends-list .key {
+	color: #bfbfbf;
+}
