@@ -29,6 +29,9 @@ header .account-balance {
 	margin-top: 40px;
 }
 
+.sale {
+	min-height: 110px;
+}
 .sale .content {
 	padding: 40px 0;
 }
@@ -54,7 +57,7 @@ header .account-balance {
 	color: #9b59b6;
 	padding: 5px;
 }
-.sale .price:hover {
+.sale .own.price:hover {
 	background: #f5f5f5;
 	text-decoration: underline;
 }
