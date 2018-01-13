@@ -34,7 +34,20 @@ include includes/header.pug
 						strong Luke
 						|'s inventory
 
-			p Inventory feature is under construction
-			
+			.inventory
+				.ui.four.cards
+					.ui.card.skin
+						.image
+							img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_butterfly_an_tiger_orange_light_large.2fece0b06a84ce2bb6e15e7cd3a37f400f218940.png")
+						.content
+							.ui.checkbox
+								input(type="checkbox")
+								label
+							.ui.small.green.basic.button Sell
+							.ui.small.basic.button Return
+						.extra
+							p $125.16 ~ $923.29
+
+
 	include includes/sidebars.pug
 include includes/scripts.pug

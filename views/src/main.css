@@ -65,3 +65,14 @@ header .account-balance {
 .sidebar#friends-list .key {
 	color: #bfbfbf;
 }
+
+
+.inventory {
+	margin-top: 50px;
+}
+.inventory .skin .checkbox {
+	width: 100%;
+}
+.inventory .skin .button {
+	margin: 15px 3px;
+}
