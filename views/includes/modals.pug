@@ -41,3 +41,18 @@
 	.actions
 		.ui.negative.disabled.button Clear
 		.ui.deny.button Dismiss
+
+.ui.add-friend.modal
+	.header Add friend
+	.content
+		.ui.form
+			.two.fields
+				.three.wide.field
+					label Name
+					input(autocomplete="off" type="text")#friend-name
+				.thirteen.wide.field
+					label API Key
+					input(autocomplete="off" type="text")#friend-api
+	.actions
+		.ui.positive.button Add
+		.ui.cancel.button Dismiss
