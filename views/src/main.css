@@ -14,6 +14,30 @@ header {
 	grid-column: 3/4;
 }
 
+@media (max-width: 1200px) {
+	.main-grid {
+		grid-template-columns: 20px 5fr 2fr 20px;
+	}
+}
+
+@media (max-width: 968px) {
+	html {
+		min-width: 600px
+	}
+	.main-grid {
+		grid-template-columns: 0 5fr 2fr 0;
+	}
+	.header {
+		grid-column: 1/5;
+	}
+	.content {
+		grid-column: 1/5;
+	}
+	.sidebars-column {
+		grid-column: 1/5;
+	}
+}
+
 
 header .account-balance {
 	color: #2ecc71 !important;
@@ -68,11 +92,26 @@ header .account-balance {
 
 
 .inventory {
-	margin-top: 50px;
+	margin-top: 20px;
 }
 .inventory .skin .checkbox {
 	width: 100%;
 }
 .inventory .skin .button {
 	margin: 15px 3px;
+	margin-bottom: 10px;
+}
+
+.inventory-controls {
+	margin-top: 30px;
+	width: 100%;
+}
+.inventory-controls .selection, .inventory-controls .button {
+	margin-left: 5px;
+}
+.inventory-controls .selection:first-child, .inventory-controls .select-based .button:first-child {
+	margin: 0;
+}
+.inventory-controls .select-based {
+	margin-top: 10px;
 }

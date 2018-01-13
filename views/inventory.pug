@@ -14,25 +14,38 @@ include includes/header.pug
 		.ui.padded.segment
 			h1 Inventory
 
-			.ui.selection.dropdown
-				input(name="inventoryOwnership" type="hidden" autocomplete="off")
-				i.dropdown.icon
-				.default.text 
-					strong Your 
-					|inventory
-				.menu
-					div.item(data-value="1") 
-						strong Your 
-						|inventory
-					div.item(data-value="2") 
-						strong Mike
-						|'s inventory
-					div.item(data-value="3") 
-						strong Paul
-						|'s inventory
-					div.item(data-value="4") 
-						strong Luke
-						|'s inventory
+			.inventory-controls
+				.ui.selection.dropdown
+					input(name="inventoryOwnership" type="hidden" autocomplete="off")
+					i.dropdown.icon
+					.default.text 
+						strong Your inventory
+					.menu
+						.item(data-value="1") 
+							strong Your 
+							|inventory
+						.item(data-value="2") 
+							strong Mike
+							|'s inventory
+						.item(data-value="3") 
+							strong Paul
+							|'s inventory
+						.item(data-value="4") 
+							strong Luke
+							|'s inventory
+				.ui.selection.dropdown.disabled
+					input(name="gameFilter" type="hidden" autocomplete="off")
+					i.dropdown.icon
+					.default.text
+						strong All games
+					.menu
+						.item All games
+						.item CS:GO
+						.item PUBG
+				.ui.button Show
+				.select-based
+					.ui.button Select all
+					.ui.button.disabled Return
 
 			.inventory
 				.ui.four.cards
@@ -41,13 +54,16 @@ include includes/header.pug
 							img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_butterfly_an_tiger_orange_light_large.2fece0b06a84ce2bb6e15e7cd3a37f400f218940.png")
 						.content
 							.ui.checkbox
-								input(type="checkbox")
-								label
+								input(name ="check-items" type="checkbox")
+								label Butterfly Knife - Tiger Tooth
+
 							.ui.small.green.basic.button Sell
 							.ui.small.basic.button Return
 						.extra
-							p $125.16 ~ $923.29
+							p $125.16
 
 
 	include includes/sidebars.pug
 include includes/scripts.pug
+script
+	include src/inventory.js
