@@ -1,3 +1,42 @@
+class Settings {
+	constructor (settings) {
+		if (settings) {
+			this._apiKey = settings.apiKey || "";
+		}
+	}
+	change (settings) {
+		if (settings.apiKey) {
+			this._apiKey = settings.apiKey;
+		};
+	}
+}
+
+class FriendsList {
+	constructor (list) {
+		if (list) {
+			this._list = list;
+		} else {
+			this._list = [];
+		}
+	}
+	add (friend) {
+		this._list.push({
+			name: friend.name,
+			apiKey: friend.apiKey
+		});
+	}
+	remove (name) {
+		this._list.forEach((friend, index) => {
+			if (friend.name == name) {
+				this._list.splice(index, 1);
+			}
+		})
+	}
+}
+
+let settings = new Settings();
+let friends = new FriendsList();
+
 $(() => {
 	$(document).on("click", "header .settings-btn", (e) => {
 		$(".ui.settings.modal")
@@ -6,7 +45,7 @@ $(() => {
 				const settings = {
 					apiKey: $(".ui.settings.modal input#api-key").val()
 				}
-				saveSettings(settings)
+				settings.change(settings)
 			}
 		})
 		.modal("show");
@@ -25,17 +64,9 @@ $(() => {
 					name: $(".ui.add-friend.modal input#friend-name").val(),
 					apiKey: $(".ui.add-friend.modal input#friend-api").val()
 				}
-				addFriend(friend);
+				friends.add(friend);
 			}
 		})
 		.modal("show");
 	})
 })
-
-function saveSettings (settings) {
-	console.log("new settings ", settings)
-}
-
-function addFriend (user) {
-	console.log("new friend ", user)
-}
