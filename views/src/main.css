@@ -115,3 +115,7 @@ header .account-balance {
 .inventory-controls .select-based {
 	margin-top: 10px;
 }
+
+.sidebar#developer-info .list{
+	margin-left: 0;
+}
