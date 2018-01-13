@@ -1,4 +1,4 @@
-.ui.modal.settings
+.ui.settings.modal
 	.header Settings
 	.content 
 		.ui.form
@@ -8,3 +8,36 @@
 	.actions
 		.ui.approve.positive.button Save
 		.ui.deny.button Cancel
+
+.ui.logs.modal
+	.header Logs
+	.content 
+		table.ui.padded.striped.table
+			thead
+				tr
+					th.two.wide Time
+					th.two.wide Result
+					th Notes
+			tbody
+				tr
+					td 15:01
+						small :511
+					td Success
+					td Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante magna, efficitur ac arcu id, sodales interdum odio
+				tr
+					td 15:01
+						small :511
+					td Fail
+					td Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante magna,
+				tr.disabled
+					td 12.01.2018
+					td 
+					td 1 logs
+				tr
+					td 15:01
+						small :511
+					td Fail
+					td Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	.actions
+		.ui.negative.disabled.button Clear
+		.ui.deny.button Dismiss

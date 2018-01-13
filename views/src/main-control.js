@@ -11,6 +11,11 @@ $(() => {
 		})
 		.modal("show");
 	})
+
+	$(document).on("click", "header .logs-btn", (e) => {
+		$(".ui.logs.modal")
+		.modal("show");
+	})
 })
 
 function saveSettings (settings) {
