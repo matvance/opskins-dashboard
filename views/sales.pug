@@ -6,10 +6,10 @@ include includes/header.pug
 			.header.item OPS-Dash a3
 			a.active.item(href="http://localhost") Sales
 			a.item(href="http://localhost/inventory") Inventory
-
 			.right.menu
 				.ui.borderless.item.account-balance $5.15
-				a.ui.item(href="http://localhost/settings") Settings
+				a.item.show-settings-btn Settings
+				a.item Logs
 	.content
 		.ui.padded.segment
 			h1 Sales
@@ -61,4 +61,5 @@ include includes/header.pug
 						span.price $121.20
 						.ui.button Buy
 	include includes/sidebars.pug
+	include includes/modals.pug
 include includes/scripts.pug
