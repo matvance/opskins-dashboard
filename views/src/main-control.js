@@ -1,5 +1,5 @@
 $(() => {
-	$(document).on("click", "a.show-settings-btn", (e) => {
+	$(document).on("click", "header .settings-btn", (e) => {
 		$(".ui.settings.modal")
 		.modal({
 			onApprove() {
@@ -14,5 +14,5 @@ $(() => {
 })
 
 function saveSettings (settings) {
-	console.log("new settigns ", settings)
+	console.log("new settings ", settings)
 }

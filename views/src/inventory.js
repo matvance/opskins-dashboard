@@ -6,7 +6,6 @@ $(() => {
 
 function windowResized (e) {
 	const windowWidth = $(window).width();
-	console.log(windowWidth)
 	if (windowWidth <= 1200) {
 		$(".inventory .ui.cards").removeClass("four").removeClass("three").addClass("two");
 	} else if (windowWidth <= 1480) {
