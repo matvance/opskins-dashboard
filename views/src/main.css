@@ -119,3 +119,6 @@ header .account-balance {
 .sidebar#developer-info .list{
 	margin-left: 0;
 }
+.form .fields .button {
+	margin-left: 10px;
+}

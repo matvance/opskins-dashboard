@@ -8,32 +8,25 @@ include includes/header.pug
 			a.active.item(href="http://localhost/inventory") Inventory
 
 			.right.menu
-				.ui.borderless.item.account-balance $5.15
+				.ui.borderless.item.account-balance $0.00
 				a.item.settings-btn Settings
-				a.item.logs-btn Logs
+				a.item.logs-btn.disabled Logs
 	.content
 		.ui.padded.segment
 			h1 Inventory
+			.ui.inline.loader.centered.segment-loader
+
+			.notifications
 
 			.inventory-controls
-				.ui.selection.dropdown
-					input(name="inventoryOwnership" type="hidden" autocomplete="off")
+				.ui.selection.dropdown#inventory-ownership
+					input(name="inventory-ownership" type="hidden" autocomplete="off")
 					i.dropdown.icon
 					.default.text 
-						strong Your inventory
+						strong Your 
+						|inventory
 					.menu
-						.item(data-value="1") 
-							strong Your 
-							|inventory
-						.item(data-value="2") 
-							strong Mike
-							|'s inventory
-						.item(data-value="3") 
-							strong Paul
-							|'s inventory
-						.item(data-value="4") 
-							strong Luke
-							|'s inventory
+						//- Friends list goes here
 				.ui.selection.dropdown.disabled
 					input(name="gameFilter" type="hidden" autocomplete="off")
 					i.dropdown.icon
@@ -43,25 +36,15 @@ include includes/header.pug
 						.item All games
 						.item CS:GO
 						.item PUBG
-				.ui.button Show
+				.ui.button.show-btn Show
 				.select-based
 					.ui.button Select all
 					.ui.button.disabled Return
 
-			.inventory
-				.ui.four.cards
-					.ui.card.skin
-						.image
-							img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_butterfly_an_tiger_orange_light_large.2fece0b06a84ce2bb6e15e7cd3a37f400f218940.png")
-						.content
-							.ui.checkbox
-								input(name ="check-items" type="checkbox")
-								label Butterfly Knife - Tiger Tooth
-
-							.ui.small.green.basic.button Sell
-							.ui.small.basic.button Return
-						.extra
-							p $125.16
+			.ui.basic.inventory.segment
+				.ui.inverted.dimmer
+					.ui.loader
+				.ui.four.cards.skins
 
 
 	include includes/sidebars.pug

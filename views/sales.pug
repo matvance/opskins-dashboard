@@ -7,59 +7,39 @@ include includes/header.pug
 			a.active.item(href="http://localhost") Sales
 			a.item(href="http://localhost/inventory") Inventory
 			.right.menu
-				.ui.borderless.item.account-balance $5.15
+				.ui.borderless.item.account-balance $0.00
 				a.item.settings-btn Settings
-				a.item.logs-btn Logs
+				a.item.logs-btn.disabled Logs
 	.content
 		.ui.padded.segment
 			h1 Sales
+			.ui.inline.loader.centered.segment-loader
+
+			.notifications
 
 			.list-buttons
 				.ui.button Select all
 				.ui.disabled.button Return
-				.ui.selection.dropdown
-					input(name="salesOwnership" type="hidden" autocomplete="off")
+				.ui.selection.dropdown#sales-ownership
+					input(name="sales-ownership" type="hidden" autocomplete="off")
 					i.dropdown.icon
 					.default.text 
 						strong Your 
 						|sales
 					.menu
-						div.item(data-value="1") 
+						.item(data-value="own") 
 							strong Your 
 							|sales
-						div.item(data-value="2") 
-							strong Mike
-							|'s sales
-						div.item(data-value="3") 
-							strong Paul
-							|'s sales
-						div.item(data-value="4") 
-							strong Luke
-							|'s sales
+						//- Friends list goes here
 
-			.ui.relaxed.divided.list
-				.item.sale
-					.right.floated.content
-						.ui.fitted.checkbox
-							input(type="checkbox")
-							label 
-					.ui.image
-						img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_bayonet_am_doppler_phase1_light_large.2de778920740e6c402ab6ac36ff5e9410196fbe8.png")
-					.content
-						h3.name Bayonet - Doppler | Field-tested
-							span.id #353028847
-						span.own.price $121.20
-						.ui.button.disabled.price-save-btn Save
-						.ui.button Return
-				.item.sale
-					.right.floated.content
-					.ui.image
-						img(src="https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_knife_butterfly_an_tiger_orange_light_large.2fece0b06a84ce2bb6e15e7cd3a37f400f218940.png")
-					.content
-						h3.name Butterfly Knife - Tiger Tooth | Factory new
-							span.id #353028847
-						span.price $121.20
-						.ui.button Buy
+			.ui.basic.sales.segment
+				.ui.inverted.dimmer
+					.ui.loader
+
+				.ui.relaxed.divided.list
+					//- Sales go here
 	include includes/sidebars.pug
 	include includes/modals.pug
 include includes/scripts.pug
+script
+	include src/sales.js

@@ -1,0 +1,3 @@
+- price edit
+- quick sell
+- quick buy
