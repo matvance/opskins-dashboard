@@ -125,6 +125,7 @@ io.on("connection", (socket) => {
 	})
 	socket.on("write-friends", (friendsList) => {
 		friends.list = friendsList;
+		console.log(friendsList);
 		friends.write();
 	})
 

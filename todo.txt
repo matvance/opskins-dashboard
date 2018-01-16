@@ -1,3 +1,5 @@
 - price edit
 - quick sell
 - quick buy
+
+[*]make out new rendering method

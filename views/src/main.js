@@ -61,15 +61,12 @@ class FriendsList {
 		location.reload();
 	}
 	remove (name) {
-		this._list.forEach((friend, index) => {
-			if (friend.name == name) {
-				this._list.splice(index, 1);
-				name = null;
-			}
-		});
-		this.listFriends();
+		this._list = this._list
+			.filter(friend => friend.name != name);
+
+		console.log(this._list);
 		this.write();
-		location.reload();
+		this.listFriends();
 	}
 	listFriends () {
 		if (this._list) {
@@ -179,6 +176,7 @@ let friends = new FriendsList();
 let account = new Account();
 
 $(() => {
+	//Settings
 	$(document).on("click", "header .settings-btn", (e) => {
 		$(".ui.settings.modal")
 		.modal({
@@ -192,11 +190,13 @@ $(() => {
 		.modal("show");
 	})
 
+	//Logs
 	$(document).on("click", "header .logs-btn", (e) => {
 		$(".ui.logs.modal")
 		.modal("show");
 	})
 
+	//Add friend
 	$(document).on("click", "#friends-list .add-friend-btn", (e) => {
 		$(".ui.add-friend.modal")
 		.modal({
@@ -212,7 +212,12 @@ $(() => {
 		.modal("show");
 	})
 
+	//Remove friend
 	$(document).on("click", "#friends-list .remove-friend-btn", (e) => {
-		friends.remove($("#friends-list .nick").text());
+		const friendName = $(e.target)
+			.parent().parent()
+			.find(".nick").text();
+
+		friends.remove(friendName);
 	})
 })
