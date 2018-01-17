@@ -1,0 +1,45 @@
+include includes/header.pug
+
+.main-grid
+	header
+		.ui.secondary.menu
+			.header.item OPS-Dash a3
+			a.active.item(href="http://localhost") Sales
+			a.item(href="http://localhost/inventory") Inventory
+			.right.menu
+				.ui.borderless.item.account-balance $0.00
+				a.item.settings-btn Settings
+				a.item.logs-btn.disabled Logs
+	.content
+		.ui.padded.segment
+			h1 Sales
+			.ui.inline.loader.centered.segment-loader
+
+			.notifications
+
+			.list-buttons
+				.ui.button Select all
+				.ui.disabled.button Return
+				.ui.selection.dropdown#sales-ownership
+					input(name="sales-ownership" type="hidden" autocomplete="off")
+					i.dropdown.icon
+					.default.text 
+						strong Your 
+						|sales
+					.menu
+						.item(data-value="own") 
+							strong Your 
+							|sales
+						//- Friends list goes here
+
+			.ui.basic.sales.segment
+				.ui.inverted.dimmer
+					.ui.loader
+
+				.ui.relaxed.divided.list
+					//- Sales go here
+	include includes/sidebars.pug
+	include includes/modals.pug
+include includes/scripts.pug
+script
+	include src/sales.js

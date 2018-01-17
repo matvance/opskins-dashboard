@@ -1,0 +1,89 @@
+.ui.settings.small.modal
+	.header Settings
+	.content 
+		.ui.form
+			.field
+				label API Key:
+				input(type="text" autocomplete="off")#api-key
+	.actions
+		.ui.approve.positive.button Save
+		.ui.deny.button Cancel
+
+.ui.logs.modal
+	.header Logs
+	.content 
+		table.ui.padded.striped.table
+			thead
+				tr
+					th.two.wide Time
+					th.two.wide Result
+					th Notes
+			tbody
+				tr
+					td 15:01
+						small :511
+					td Success
+					td Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante magna, efficitur ac arcu id, sodales interdum odio
+				tr
+					td 15:01
+						small :511
+					td Fail
+					td Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante magna,
+				tr
+					td.center.aligned(colspan="3") 12 January 2018
+				tr
+					td 15:01
+						small :511
+					td Fail
+					td Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+	.actions
+		.ui.negative.disabled.button Clear
+		.ui.deny.button Cancel
+
+.ui.add-friend.tiny.modal
+	.header Add friend
+	.content
+		.ui.form
+			.two.fields
+				.four.wide.field
+					label Name
+					input(autocomplete="off" type="text")#friend-name
+				.twelve.wide.field
+					label API Key
+					input(autocomplete="off" type="text")#friend-api
+	.actions
+		.ui.positive.button Save
+		.ui.cancel.button Cancel
+
+.ui.sell-item.tiny.modal
+	.header Sell item
+	.content
+		.modal-item
+			//- Modal item info goes here
+
+		h4.ui.horizontal.divider.header
+			i.cart.icon
+			|List on market
+		.ui.equal.width.form
+			.inline.fields
+				label $
+				.four.wide.field
+					input(autocomplete="off" type="text" placeholder="price in cents")
+				.ui.positive.button.list-item-btn List on market
+		h4.ui.horizontal.divider.header
+			i.child.icon
+			|Quick sell
+		p This feature list item on market and, after 10 minutes, change its price and use friend's api key to buy it from you at desired price.
+		.ui.equal.width.form
+			.two.inline.fields
+				label $
+				.four.wide.field
+					input(autocomplete="off" type="text" placeholder="price in cents")
+				.ui.selection.dropdown#quicksell-friends
+					input(name="sell-to-friend" type="hidden" autocomplete="off")
+					i.dropdown.icon
+					.default.text Select friend
+					.menu
+				.ui.positive.button Sell
+	.actions
+		.ui.cancel.button Cancel
