@@ -85,6 +85,15 @@ header .account-balance {
 	background: #f5f5f5;
 	text-decoration: underline;
 }
+.sale input.new-price {
+	border: 0;
+	width: 120px;
+	color: #9b59b6;
+    font-family: Lato;
+}
+input.new-price:focus {
+	width: 150px;
+}
 
 .sidebar#friends-list .key {
 	color: #bfbfbf;

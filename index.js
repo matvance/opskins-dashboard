@@ -86,7 +86,7 @@ server.listen(80, () => {
 
 //Socket-io
 io.on("connection", (socket) => {
-	//Sales
+	//Request Sales
 	socket.on("request-sales", (fetchApi, callback) => {
 		let apiGateway;
 		if (fetchApi == "own") {
@@ -174,6 +174,32 @@ io.on("connection", (socket) => {
 					.description("Item(s) purchased successfully within " + (queryTime / 1000) + "s");
 
 				callback(notification);
+			}
+		})
+	})
+
+	//Change price
+	socket.on("change-price", (saleId, price, callback) => {
+		const startTime = new Date().getTime();
+		opskins.editPrice(saleId, price, (err, relisted) => {
+			if (err) {
+
+				const notification = new Notification()
+					.state("fail")
+					.title("Failed changing item price")
+					.description(err.message);
+
+				callback(notification, relisted);
+			}else {
+				const endTime = new Date().getTime();
+				const queryTime = endTime - startTime;
+
+				const notification = new Notification()
+					.state("success")
+					.title("Item price changed successfully")
+					.description("Item price changed successfully within " + (queryTime / 1000) + "s");
+
+				callback(notification, relisted);
 			}
 		})
 	})

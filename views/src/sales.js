@@ -80,6 +80,20 @@ class SalesList {
 			if (notification.state == "success") this.hideItems([saleId]);
 		});
 	}
+	changePrice (saleId, price) {
+		this.loading = true;
+
+		socket.emit("change-price", saleId, price, (notification, relisted) => {
+			new Notification(notification).hideAfter(4000);
+			if (relisted) {
+				sales = new SalesList("own")
+			} else {
+				this._sales.find(sale => sale.id == saleId).price = price;
+				this.listSales("own");
+			}
+			this.loading = false;
+		});
+	}
 	set loading (boolean) {
 		if (boolean && !this._loading) {
 			$(".sales .dimmer").addClass("active");
@@ -121,5 +135,25 @@ $(() => {
 	$(document).on("click", ".sale .return-btn", (e) => {
 		const id = $(e.target).parent().find(".id").text().replace("#", "");
 		sales.returnItem([id]);
+	})
+
+	$(document).on("click", ".own.price", (e) => {
+		if (!$(e.target).hasClass("editing")) {
+			const currentPrice = $(e.target).text().replace("$","");
+			const inputElement = "$<input type='text' class='new-price' />"
+			$(e.target).addClass("editing").html(inputElement);
+			const input = $(e.target).find("input.new-price");
+			input.val(currentPrice);
+			input.focus();
+			$(e.target).parent().parent().find(".price-save-btn").removeClass("disabled").addClass("green");
+
+		}
+	})
+	$(document).on("click", ".price-save-btn", (e) => {
+		const newPrice = $(e.target).parent().find(".new-price").val().replace(",", ".") * 100;
+		const saleId = $(e.target).parent().parent().find(".id").text().replace("#", "");
+		sales.changePrice(saleId, newPrice);
+
+
 	})
 })

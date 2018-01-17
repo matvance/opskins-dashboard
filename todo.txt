@@ -1,5 +1,6 @@
-- price edit
 - quick sell
 - quick buy
+- select all func.
+- new engine timers
 
 [*]make out new rendering method
