@@ -178,6 +178,50 @@ io.on("connection", (socket) => {
 		})
 	})
 
+	//Advanced Buy
+	socket.on("advanced-buy", (saleId, price, apiKey, callback) => {
+		const startTime = new Date().getTime();
+		let attemptsLog = [];
+
+		const ownerApi = new OPSkinsAPI(apiKey);
+
+		function attemptBuy () {
+			opskins.buyItems([saleId], price, (err, items) => {
+				if (err) {
+					attemptsLog.push(err);
+				} else {
+				}
+			})
+		}
+
+		ownerApi.editPrice(saleId, price, (err, relisted) => {
+			if (err) {
+				console.log(err.message);
+			}
+		})
+
+		let attemptInterval = setInterval(() => {
+			attemptBuy();
+			let lastError = attemptsLog[attemptsLog.length - 1];
+
+			if (lastError && lastError.code == 2003) {
+				clearInterval(attemptInterval);
+
+				const endTime = new Date().getTime();
+				const queryTime = endTime - startTime;
+				const attemptsCount = attemptsLog.length;
+
+				const notification = new Notification()
+					.state("success")
+					.title("Item purchased successfully")
+					.description("Item purchased at desired price successfully within " + (queryTime / 1000) + "s and " + attemptsCount + " attemps");
+
+				callback(notification);
+			}
+			
+		}, 500)
+	});
+
 	//Change price
 	socket.on("change-price", (saleId, price, callback) => {
 		const startTime = new Date().getTime();

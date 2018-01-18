@@ -97,7 +97,7 @@ $(() => {
 	})
 
 		$(document).on("click", ".list-item-btn", (e) => {
-			const price = $(".list-item-btn").parent().find(".field input").val();
+			const price = parseFloat($(".list-item-btn").parent().find(".field input").val().replace(",", ".")) * 100;
 			if (price > 0) {
 				inventory.listOnMarket(inventory._activeItem, price);
 				$(".ui.sell-item.modal")

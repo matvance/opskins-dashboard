@@ -1,7 +1,9 @@
+!!- use jQuery.closest() instead of jQuery.parent() and .find()
+!!- Advanced buy feature must be completely recoded!
+
 - quick sell
-- quick buy
 - select all func.
 - logs
 - new timers for notifications
 
-[*]make out new rendering method
+[*]make out new html rendering method
