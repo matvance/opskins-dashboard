@@ -1,6 +1,7 @@
 - quick sell
 - quick buy
 - select all func.
-- new engine timers
+- logs
+- new timers for notifications
 
 [*]make out new rendering method
