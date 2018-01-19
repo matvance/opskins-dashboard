@@ -1,7 +1,0 @@
-- quick sell
-- quick buy
-- select all func.
-- logs
-- new timers for notifications
-
-[*]make out new rendering method

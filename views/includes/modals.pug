@@ -87,3 +87,16 @@
 				.ui.positive.button Sell
 	.actions
 		.ui.cancel.button Cancel
+
+.ui.advanced-buy.tiny.modal
+	.header Input price
+	.content
+		p Use this feature only if you are sure that you have been permitted to buy this item at lower price.
+		.ui.form
+			.ui.inline.fields
+				label $
+				.field
+					input#advanced-buy-price(type="text" autocomplete="off")
+	.actions
+		.ui.button.positive Buy
+		.ui.cancel.button Cancel

@@ -4,6 +4,7 @@ class SalesList {
 		this.fetch(apiKey, () => {
 			this.listSales(apiKey);
 		});
+		this.apiKey = apiKey;
 	}
 	fetch (fetchApi, callback) {
 		this._loading = true;
@@ -44,6 +45,7 @@ class SalesList {
 			saleElement += 
 					'<span class="price">'+ formattedPrice +'</span>' +
 					'<div class="ui button buy-btn">Buy</div>' +
+					'<div class="ui basic button advanced-buy-btn">Advanced Buy</div>' +
 				'</div>';
 		}
 			
@@ -61,6 +63,16 @@ class SalesList {
 				this.segmentLoader = false;
 				this.hideItems(saleIds);
 			}
+		})
+	}
+	advancedBuy (saleId, price, apiKey) {
+		this.loading = true;
+		socket.emit("advanced-buy", saleId, price, apiKey, (notification) => {
+			new Notification(notification).hideAfter(5000);
+			if(notification.state == "success") {
+				this.hideItems([saleId]);
+			}
+			this.loading = false;
 		})
 	}
 	hideItems (saleIds) {
@@ -153,7 +165,18 @@ $(() => {
 		const newPrice = $(e.target).parent().find(".new-price").val().replace(",", ".") * 100;
 		const saleId = $(e.target).parent().parent().find(".id").text().replace("#", "");
 		sales.changePrice(saleId, newPrice);
+	})
 
-
+	$(document).on("click", ".advanced-buy-btn", (e) => {
+		const saleId = $(e.target).parent().parent().find(".id").text().replace("#", "");
+		const apiKey = sales.apiKey;
+		$(".advanced-buy.modal")
+			.modal({
+				onApprove() {
+					const price = parseFloat($("input#advanced-buy-price").val().replace(",", ".")) * 100;
+					sales.advancedBuy(saleId, parseInt(price), apiKey)
+				}
+			})
+			.modal("show");
 	})
 })
